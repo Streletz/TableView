@@ -1,5 +1,6 @@
-apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.android.library'
+
 
 
 android {
@@ -34,6 +35,7 @@ android {
 }
 
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -42,9 +44,6 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
     testImplementation 'junit:junit:4.12'
-    testImplementation "androidx.test:core:1.2.0"
-    testImplementation "org.mockito:mockito-core:2.18.3"
-    testImplementation "org.robolectric:robolectric:4.2"
     //
 }
 
@@ -52,7 +51,7 @@ publish {
     userOrg = 'evrencoskun'//user name of bintray.com
     groupId = 'com.evrencoskun.library'//jcenter's url
     artifactId = 'tableview'//project name
-    publishVersion = '0.9.4'//version code
+    publishVersion = '0.9.5'//version code
     desc = 'TableView is a powerful Android library for displaying complex data structures and rendering tabular data composed of rows, columns and cells.'
     website = 'https://github.com/evrencoskun/TableView'//website
 }
