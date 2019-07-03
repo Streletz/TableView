@@ -11,12 +11,8 @@
     </p>
 
 </div>
+    [![](https://jitpack.io/v/Streletz/TableView.svg)](https://jitpack.io/#Streletz/TableView)
 
-<p align="center">
-    <a href="https://youtu.be/1DWFIqrqrPk">
-      <img src="https://raw.githubusercontent.com/evrencoskun/TableViewSample/master/TableView-0_8_5_1_2.gif">
-    </a>
-</p>
 
 ## Features
 
@@ -66,6 +62,8 @@ You can check new implementations of TableView on the [release page](https://git
 ## Installation
 
 To use this library in your android project, just simply add the following dependency into your build.gradle
+
+[![](https://jitpack.io/v/Streletz/TableView.svg)](https://jitpack.io/#Streletz/TableView)
 
 ```
 dependencies {
