@@ -69,8 +69,8 @@ To use this library in your android project, just simply add the following depen
 
 ```
 dependencies {
-    compile 'com.evrencoskun.library:tableview:0.9.0'
-}
+	        implementation 'com.github.Streletz:TableView:Tag'
+	}
 ```
 
 ## Implement your item on TableView 
