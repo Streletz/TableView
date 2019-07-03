@@ -20,6 +20,7 @@ package com.evrencoskun.tableviewsample;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -116,7 +117,19 @@ public class MainFragment extends Fragment {
             // pagination actions. See onTableViewPageTurnedListener variable declaration below.
             mPagination.setOnTableViewPageTurnedListener(onTableViewPageTurnedListener);
         }
+        mTableView.setCellOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
 
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int a = 1;
+                a += 2;
+            }
+        });
 
         return layout;
     }
@@ -194,31 +207,31 @@ public class MainFragment extends Fragment {
     // Handler for the changing of pages in the paginated TableView.
     private Pagination.OnTableViewPageTurnedListener onTableViewPageTurnedListener = new
             Pagination.OnTableViewPageTurnedListener() {
-        @Override
-        public void onPageTurned(int numItems, int itemsStart, int itemsEnd) {
-            int currentPage = mPagination.getCurrentPage();
-            int pageCount = mPagination.getPageCount();
-            previousButton.setVisibility(View.VISIBLE);
-            nextButton.setVisibility(View.VISIBLE);
+                @Override
+                public void onPageTurned(int numItems, int itemsStart, int itemsEnd) {
+                    int currentPage = mPagination.getCurrentPage();
+                    int pageCount = mPagination.getPageCount();
+                    previousButton.setVisibility(View.VISIBLE);
+                    nextButton.setVisibility(View.VISIBLE);
 
-            if (currentPage == 1 && pageCount == 1) {
-                previousButton.setVisibility(View.INVISIBLE);
-                nextButton.setVisibility(View.INVISIBLE);
-            }
+                    if (currentPage == 1 && pageCount == 1) {
+                        previousButton.setVisibility(View.INVISIBLE);
+                        nextButton.setVisibility(View.INVISIBLE);
+                    }
 
-            if (currentPage == 1) {
-                previousButton.setVisibility(View.INVISIBLE);
-            }
+                    if (currentPage == 1) {
+                        previousButton.setVisibility(View.INVISIBLE);
+                    }
 
-            if (currentPage == pageCount) {
-                nextButton.setVisibility(View.INVISIBLE);
-            }
+                    if (currentPage == pageCount) {
+                        nextButton.setVisibility(View.INVISIBLE);
+                    }
 
-            tablePaginationDetails.setText(getString(R.string.table_pagination_details, String
-                    .valueOf(currentPage), String.valueOf(itemsStart), String.valueOf(itemsEnd)));
+                    tablePaginationDetails.setText(getString(R.string.table_pagination_details, String
+                            .valueOf(currentPage), String.valueOf(itemsStart), String.valueOf(itemsEnd)));
 
-        }
-    };
+                }
+            };
 
 
     private AdapterView.OnItemSelectedListener mItemSelectionListener = new AdapterView

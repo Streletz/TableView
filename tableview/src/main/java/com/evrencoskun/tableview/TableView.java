@@ -29,6 +29,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -750,5 +751,14 @@ public class TableView extends FrameLayout implements ITableView {
 
         // Reload the preferences
         mPreferencesHandler.loadPreferences(savedState.preferences);
+    }
+
+    /**
+     * обработка события скроллинга.
+     *
+     * @param listener RecyclerView.OnScrollListener
+     */
+    public void setCellOnScrollListener(@NonNull RecyclerView.OnScrollListener listener) {
+        mCellRecyclerView.addOnScrollListener(listener);
     }
 }

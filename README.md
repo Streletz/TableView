@@ -69,7 +69,7 @@ To use this library in your android project, just simply add the following depen
 
 ```
 dependencies {
-    compile 'com.evrencoskun.library:tableview:0.8.8' 
+    compile 'com.evrencoskun.library:tableview:0.9.0'
 }
 ```
 
@@ -800,7 +800,27 @@ _Depending on your preference, you may not follow the following and create your 
 
 2. Pagination and Filtering works seamlessly: Filter action <---> Paginate action, e.g. You filter for all "Boy" then paginate by 50 items per page OR You paginate by 25 items per page and go to a specific page and then filter all "Sad", etc.
 
-## Change your TableView model 
+## Change your TableView model
+
+As of version **0.9.0**
+
+- Add onScrollListener to CellRecyclerView.
+
+```java
+mTableView.setCellOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int a = 1;
+                a += 2;
+            }
+        });
+```
 
 As of version **0.8.5.1**, TableView has some helper functions to change desired cell item model easily. These are the following:
 
