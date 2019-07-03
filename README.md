@@ -11,7 +11,7 @@
     </p>
 
 </div>
-    [![](https://jitpack.io/v/Streletz/TableView.svg)](https://jitpack.io/#Streletz/TableView)
+
 
 
 ## Features
