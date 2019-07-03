@@ -4,7 +4,7 @@ apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 14
@@ -48,7 +48,7 @@ publish {
     userOrg = 'evrencoskun'//user name of bintray.com
     groupId = 'com.evrencoskun.library'//jcenter's url
     artifactId = 'tableview'//project name
-    publishVersion = '0.9.2'//version code
+    publishVersion = '0.9.3'//version code
     desc = 'TableView is a powerful Android library for displaying complex data structures and rendering tabular data composed of rows, columns and cells.'
     website = 'https://github.com/evrencoskun/TableView'//website
 }
