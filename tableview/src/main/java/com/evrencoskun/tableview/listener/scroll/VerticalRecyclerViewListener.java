@@ -17,6 +17,7 @@
 
 package com.evrencoskun.tableview.listener.scroll;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -36,6 +37,8 @@ public class VerticalRecyclerViewListener extends RecyclerView.OnScrollListener 
     private CellRecyclerView mRowHeaderRecyclerView, mCellRecyclerView;
     private RecyclerView mLastTouchedRecyclerView;
 
+    private int pastVisiblesItems;
+
     // Y Position means row position
     private int mYPosition;
     private boolean mIsMoved;
@@ -47,10 +50,11 @@ public class VerticalRecyclerViewListener extends RecyclerView.OnScrollListener 
         this.mCellRecyclerView = tableView.getCellRecyclerView();
     }
 
-    private float dx=0, dy=0;
+    private float dx = 0, dy = 0;
 
     /**
      * check which direction the user is scrolling
+     *
      * @param ev
      * @return
      */
@@ -81,12 +85,12 @@ public class VerticalRecyclerViewListener extends RecyclerView.OnScrollListener 
 
         // Prevent multitouch, once we start to listen with a RV,
         // we ignore any other RV until the touch is released (UP)
-        if((mCurrentRVTouched != null && rv != mCurrentRVTouched)) {
+        if ((mCurrentRVTouched != null && rv != mCurrentRVTouched)) {
             return true;
         }
-            
+
         // If scroll direction is not Vertical, then ignore and reset last RV touched
-        if(!verticalDirection(e)) {
+        if (!verticalDirection(e)) {
             mCurrentRVTouched = null;
             return false;
         }
@@ -159,6 +163,7 @@ public class VerticalRecyclerViewListener extends RecyclerView.OnScrollListener 
 
         if (recyclerView == mCellRecyclerView) {
             super.onScrolled(recyclerView, dx, dy);
+            pastVisiblesItems = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
             // The below code has been moved in CellLayoutManager
             //mRowHeaderRecyclerView.scrollBy(0, dy);
 
@@ -213,5 +218,9 @@ public class VerticalRecyclerViewListener extends RecyclerView.OnScrollListener 
             }
 
         }
+    }
+
+    public int getPastVisiblesItems() {
+        return pastVisiblesItems;
     }
 }

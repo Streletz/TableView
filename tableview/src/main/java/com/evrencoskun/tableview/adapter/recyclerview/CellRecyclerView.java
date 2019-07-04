@@ -152,4 +152,5 @@ public class CellRecyclerView extends RecyclerView {
         //velocityY *= 0.6;
         return super.fling(velocityX, velocityY);
     }
+
 }
