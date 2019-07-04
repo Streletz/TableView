@@ -345,4 +345,14 @@ public abstract class AbstractTableAdapter<CH, RH, C> implements ITableAdapter {
 
         dataSetChangedListeners.add(listener);
     }
+
+    @Override
+    public int getColumnCount() {
+        return mColumnHeaderItems.size();
+    }
+
+    @Override
+    public int getRowCount() {
+        return mRowHeaderItems.size();
+    }
 }

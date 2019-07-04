@@ -56,6 +56,10 @@ public interface ITableAdapter {
 
     ITableView getTableView();
 
+    int getColumnCount();
+
+    int getRowCount();
+
     /**
      * Sets the listener for changes of data set on the TableView.
      *
